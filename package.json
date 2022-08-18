@@ -1,0 +1,31 @@
+{
+  "name": "api_cep",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Lucas Bispo <lucasbispomenezes@hotmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasBispoMenezes/Api_Rest_cep.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucasBispoMenezes/Api_Rest_cep/issues"
+  },
+  "homepage": "https://github.com/LucasBispoMenezes/Api_Rest_cep#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
