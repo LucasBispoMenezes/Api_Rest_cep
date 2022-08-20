@@ -6,10 +6,25 @@ const getByCep = async (cep) => {
       .execute('SELECT * FROM ceps WHERE cep = ? ', [cep])
     return result
   } catch (error) {
+    return { error }
     console.log(error);
   }
 }
 
+const create = async ({ cep, logradouro, bairro, localidade, uf }) => {
+  console.log(cep);
+  const dados = [cep, logradouro, bairro, localidade, uf];
+  try {
+    const [result] = await connection
+      .execute('INSERT INTO ceps VALUES(?,?,?,?,?)', dados)
+    return result
+  } catch (error) {
+    console.log(error.message);
+    return { error }
+  }
+}
+
 module.exports = {
-  getByCep
+  getByCep,
+  create
 }
