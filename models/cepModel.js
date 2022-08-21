@@ -6,13 +6,12 @@ const getByCep = async (cep) => {
       .execute('SELECT * FROM ceps WHERE cep = ? ', [cep])
     return result
   } catch (error) {
+    console.log(error.message);
     return { error }
-    console.log(error);
   }
 }
 
 const create = async ({ cep, logradouro, bairro, localidade, uf }) => {
-  console.log(cep);
   const dados = [cep, logradouro, bairro, localidade, uf];
   try {
     const [result] = await connection

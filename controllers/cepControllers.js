@@ -19,7 +19,8 @@ const create = async (req, res) => {
   const { cep, logradouro, bairro, localidade, uf } = req.body
   try {
     const message = await cepService.create({ cep, logradouro, bairro, localidade, uf })
-    return res.status(200).send(message)
+    if (message.affectedRows != 0) return res.status(201).json(req.body)
+    return res.status(201).json({ message: "deu merda" })
   } catch (error) {
     console.log(error.message);
 

@@ -1,12 +1,11 @@
 const { Router } = require('express')
 const cepControllers = require('../controllers/cepControllers')
 const CepRoutes = Router()
-const bodyParser = require('body-parser')
-
-CepRoutes.use(bodyParser.json())
+const { validatePost } = require('../middleware/validatePost')
 const { validateCep } = require('../middleware/validateCep')
+
 CepRoutes.get('/:cep', validateCep, cepControllers.getByCep)
-CepRoutes.post('/', cepControllers.create)
+CepRoutes.post('/', validatePost, cepControllers.create)
 
 
 
